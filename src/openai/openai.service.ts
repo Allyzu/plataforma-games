@@ -10,7 +10,7 @@ export class OpenaiService {
   constructor(private configService: ConfigService) {
     const apiKey = this.configService.get<string>('OPENAI_API_KEY');
     if (!apiKey) {
-      throw new Error('OpenAI API key is required .env variable.');
+      throw new Error('OPENAI_API_KEY environment variable is required');
     }
     this.openai = new OpenAI({ apiKey });
   }
